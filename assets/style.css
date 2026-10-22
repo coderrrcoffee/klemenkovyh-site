@@ -1647,7 +1647,9 @@ body::after {
   .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 0; }
   .trust-item:nth-child(odd) { padding-left: 0; border-left: 0; }
   .order-grid { grid-template-columns: 1fr; }
-  .summary { position: static; }
+  /* position: static ломал клип: ::before с right:-130px уезжал за экран и
+     раздувал layout viewport — телефон зумил страницу до 0.75 с пустой полосой справа. */
+  .summary { position: relative; top: auto; }
   .how-head { align-items: flex-start; flex-direction: column; gap: 18px; }
   .how-text { max-width: 560px; padding-bottom: 0; }
 }
